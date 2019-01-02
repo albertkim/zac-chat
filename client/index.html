@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+//thisisthehtml
+<html>
+    <head>
+        <title></title>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script type="text/javascript" src="./index.js"></script>
+    </head>
+    <body style="background-image: url('boi.png');">
+        <h1> Plaza Chatroom </h1>
+        <h2 id="initial-text"> Rules, no spam, no swearing, use direct links without redirects or shorteners, no predjudicial treatment, be civil, don't be mailicious, no drama, don't send links to hurtful, dangerous, or innapropriate websites, don't advertise, don't ask for personal information, don't be an imposter, use different unique and not confusing usernames. All messages not following guidelines will most likely be removed.
+        </h2>
+        <button onclick="Walloftext()">hide/show rules</button>
+        <p> Enter your name and first message and avatar, remember you can't change it!</p>
+        <div>
+            <input id="name-input">
+              <select id = "Icon">
+                    <option value="fas fa-smile fa-3x">smile</option>
+                    <option value="fas fa-tired fa-3x">tired</option>
+                    <option value="fas fa-surprise fa-3x">surprise</option>
+                    <option value="fas fa-meh fa-3x">meh</option>
+                    <option value="fas fa-grin fa-3x">grin</option>
+                    <option value="fas fa-laugh fa-3x">laugh</option>
+                    <option value="fas fa-kiss fa-3x">kiss</option>
+                    <option value="fas fa-grimace fa-3x">kiss</option>
+                    <option value="fas fa-frown fa-3x">kiss</option>
+                    <option value="fas fa-flushed fa-3x">kiss</option>
+                    <option value="fas fa-dizzy fa-3x">kiss</option>
+                  </select>
+        </div>
+        
+        <div id="chats"></div>
+        
+        <input id="input" value = "Hello">
+        <button id="chat-button">Send</button>
+
+    </body>
+</html>

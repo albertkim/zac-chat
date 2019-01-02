@@ -5,7 +5,15 @@ const bodyParser = require('body-parser')
 const app = express()
 const port = process.env.PORT
 
-const chats = []
+const chats = [
+  {
+    username: 'Admin',
+    message: 'Welcome to Plaza Chatroom',
+    timestamp: new Date(),
+    color: '3w45d',
+    face: 'fas fa-smile fa-3x'
+  }
+]
 
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
