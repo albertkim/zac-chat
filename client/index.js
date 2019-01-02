@@ -1,25 +1,26 @@
 var apiUrl = 'https://zac-chat.herokuapp.com'
 
-var chats = [
-  {
-      username: 'Admin',
-      message: 'Welcome to Plaza Chatroom',
-      timestamp: new Date(),
-      color: '3w45d',
-      face: 'fas fa-smile fa-3x'
-  }
-]
+var chats = []
 
 function getChats() {
-  fetch(apiUrl + '/chats').then((response) => {
-    chats = response.body
-    this.render()
-  })
+  fetch(apiUrl + '/chats')
+    .then((response) => response.json())
+    .then((networkChats) => {
+      chats = networkChats
+      console.log(chats)
+      render()
+    })
 }
 
 function postChat(chat) {
-  fetch(apiUrl + '/chat', {method: 'POST', body: chat}).then(() => {
-    this.getChats()
+  fetch(apiUrl + '/chat', {
+    method: 'POST',
+    body: JSON.stringify(chat),
+    headers: new Headers({
+      'Content-Type': 'application/json'
+    }),
+  }).then(() => {
+    getChats()
   })
 }
 
@@ -46,8 +47,6 @@ function render() {
       chatElement.append(rightElement)
 
       chatElement.append("<hr />")
-
-      console.log(chatElement)
 
       $("#chats").append(chatElement)
   }
