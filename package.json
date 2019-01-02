@@ -5,6 +5,12 @@
   "repository": "git@github.com:albertkim/zac-chat.git",
   "author": "Albert Kim <albert275@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "engines": {
+    "node": "10.x"
+  },
   "dependencies": {
     "express": "^4.16.4"
   }
