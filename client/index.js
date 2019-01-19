@@ -44,7 +44,7 @@ function render() {
       var rightElement = $("<div></div>")
 
       rightElement.append("<div>" + asdf.username +  "</div>")
-      rightElement.append("<div>" + asdf.timestamp +  "</div>")
+      rightElement.append("<div>" + new Date(asdf.timestamp) +  "</div>")
       rightElement.append("<div>" + asdf.message +  "</div>")
 
       chatElement.append(rightElement)
