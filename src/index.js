@@ -12,7 +12,8 @@ const chats = [
     message: 'Welcome to Plaza Chatroom',
     timestamp: new Date(),
     color: '3w45d',
-    face: 'fas fa-smile fa-3x'
+    face: 'fas fa-smile fa-3x',
+    box: 'alert alert-primary'
   }
 ]
 

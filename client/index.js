@@ -9,6 +9,7 @@ function getChats() {
       chats = networkChats
       console.log(chats)
       render()
+     //window.scrollTo(0,document.body.scrollHeight)
     })
 }
 
@@ -29,7 +30,9 @@ function render() {
   $("#chats").empty()
   for (var asdf of chats) {
       
-      var chatElement = $("<div></div>")
+      // var chatElement = $("<div class='alert alert-primary'></div>")
+      var chatElement = $("<div class='" + asdf.box + "'></div>")
+    
 
       var leftElement = $("<div style='width: 50px; float: left;'></div>")
       var face = $("<div></div>")
@@ -46,8 +49,6 @@ function render() {
 
       chatElement.append(rightElement)
 
-      chatElement.append("<hr />")
-
       $("#chats").append(chatElement)
   }
 }
@@ -56,10 +57,12 @@ $(document).ready(function(){
 
   getChats()
 
+  setInterval(() => getChats(), 1000)
+
   $("#chat-button").click(function() {
 
-      if ($("#name-input").val().length < 3 ){
-          return alert(" Your username must be at least 3 characters long!")
+      if ($("#name-input").val().length < 1 ){
+          return alert(" Your username must be at least 1 character long!")
       }
 
       // Insert into chats array
@@ -67,11 +70,13 @@ $(document).ready(function(){
           username: $("#name-input").val(),
           message: $("#input").val(),
           timestamp: new Date(),
-          face: $("#Icon").val()
+          face: $("#Icon").val(),
+          box: $("#Colour").val()
       }
       postChat(newChat)
       $("#name-input").prop('disabled', true)
       $("#Icon").prop('disabled', true)
+      $("#Colour").prop('disabled', true)
   })
 
 })
