@@ -69,12 +69,10 @@ $(document).ready(function(){
           username: $("#name-input").val(),
           message: $("#input").val(),
           timestamp: new Date(),
-          face: $("#Icon").val(),
           box: $("#Colour").val()
       }
       postChat(newChat)
       $("#name-input").prop('disabled', true)
-      $("#Icon").prop('disabled', true)
       $("#Colour").prop('disabled', true)
   })
 
