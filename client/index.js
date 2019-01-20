@@ -36,7 +36,6 @@ function render() {
 
       var leftElement = $("<div style='width: 50px; float: left;'></div>")
       var face = $("<div></div>")
-      face.addClass(asdf.face)
       leftElement.append(face)
 
       chatElement.append(leftElement)
@@ -57,7 +56,7 @@ $(document).ready(function(){
 
   getChats()
 
-  setInterval(() => getChats(), 1000)
+  setInterval(() => getChats(), 10000)
 
   $("#chat-button").click(function() {
 
