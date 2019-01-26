@@ -38,6 +38,16 @@ function render() {
   console.log('render')
   $("#chats").empty()
   for (var asdf of chats) {
+      // if asdf.imageurl value length = > 1 show asdf.imageurl
+      // if else hide asdf.imageurl
+      var imageElement
+      if (asdf.imageurl && asdf.imageurl.length >= 1) {
+        imageElement = `<img src="${asdf.imageurl}" />`
+      } else {
+        imageElement = `<div />`
+      }
+
+      console.log(imageElement)
       
       // var chatElement = $("<div class='alert alert-primary'></div>")
       var chatElement = $(`
@@ -46,7 +56,7 @@ function render() {
           <div>${new Date(asdf.timestamp)}</div>
           <div>${asdf.subject}</div>
           <div>${asdf.message}</div>
-          <img src=${asdf.imageurl} />
+          ${imageElement}
         </div>
       `)
 
