@@ -73,13 +73,9 @@ $(document).ready(function(){
   // Get chats every 10 seconds
   setInterval(() => getChats(), 10000)
 
-  // Upload image
-  document.getElementById("image-upload").addEventListener("click", function(){
-    myWidget.open()
-  }, false)
-
   // Do something when the chat button is pressed
   $("#chat-button").click(function() {
+
 
       // Check name input
       if ($("#name-input").val().length < 1 ){
@@ -100,6 +96,8 @@ $(document).ready(function(){
           box: $("#Colour").val()
       }
 
+      console.log(newChat)
+
       // Submit chat to server
       postChat(newChat)
 
@@ -110,7 +108,7 @@ $(document).ready(function(){
       // Clear message and subject input
       $("#input").val("")
       $("#subject").val("")
-
+      $("#image-url").val("")
   })
 
 })
