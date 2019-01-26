@@ -79,9 +79,6 @@ $(document).ready(function(){
       if ($("#input").val().length < 1 ){
             return alert(" Your message must be at least 1 character long!")
       }
-      if ($("#subject").val().length < 1 ){
-        return alert(" Your subject must be at least 1 character long!")
-      }
 
       // Insert into chats array
       var newChat = {
