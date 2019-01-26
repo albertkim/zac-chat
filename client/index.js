@@ -41,7 +41,7 @@ function render() {
       // if asdf.imageurl value length = > 1 show asdf.imageurl
       // if else hide asdf.imageurl
       var imageElement
-      if (asdf.imageurl && asdf.imageurl.length >= 1) {
+      if (asdf.imageurl && asdf.imageurl.length >= 1 && asdf.imageurl.includes("http")) {
         imageElement = `<img src="${asdf.imageurl}" />`
       } else {
         imageElement = `<div />`
