@@ -11,7 +11,7 @@ const chats = [
     username: 'Admin',
     message: 'Welcome to Plaza Chatroom',
     timestamp: new Date(),
-    color: '3w45d',
+    subject: 'Hello',
     box: 'alert alert-primary'
   }
 ]

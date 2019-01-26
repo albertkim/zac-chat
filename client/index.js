@@ -25,6 +25,7 @@ function postChat(chat) {
   })
 }
 
+// Create the chat HTML elements
 function render() {
   console.log('render')
   $("#chats").empty()
@@ -45,6 +46,7 @@ function render() {
       rightElement.append("<div>" + asdf.username +  "</div>")
       rightElement.append("<div>" + new Date(asdf.timestamp) +  "</div>")
       rightElement.append("<div>" + asdf.message +  "</div>")
+      rightElement.append("<div>" + asdf.subject +  "</div>")
 
       chatElement.append(rightElement)
 
@@ -52,28 +54,49 @@ function render() {
   }
 }
 
+// Run when the website loads up
 $(document).ready(function(){
 
+  // Get chats right away
   getChats()
 
+  // Get chats every 10 seconds
   setInterval(() => getChats(), 10000)
 
+  // Do something when the chat button is pressed
   $("#chat-button").click(function() {
 
+      // Check name input
       if ($("#name-input").val().length < 1 ){
           return alert(" Your username must be at least 1 character long!")
+      }
+      // Check message input
+      if ($("#input").val().length < 1 ){
+            return alert(" Your message must be at least 1 character long!")
+      }
+      if ($("#subject").val().length < 1 ){
+        return alert(" Your subject must be at least 1 character long!")
       }
 
       // Insert into chats array
       var newChat = {
           username: $("#name-input").val(),
+          subject: $("#subject").val(),
           message: $("#input").val(),
           timestamp: new Date(),
           box: $("#Colour").val()
       }
+
+      // Submit chat to server
       postChat(newChat)
+
+      // Disable your buttons
       $("#name-input").prop('disabled', true)
       $("#Colour").prop('disabled', true)
+
+      // Clear message input
+      $("#input").val("")
+
   })
 
 })
@@ -85,3 +108,6 @@ function Walloftext(){
     x.style.display = "none";
   }
 }
+
+
+
