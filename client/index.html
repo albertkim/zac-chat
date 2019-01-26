@@ -3,9 +3,11 @@
     <head>
         <title></title>
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+        <script src="https://widget.cloudinary.com/v2.0/global/all.js" type="text/javascript"></script>  
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script type="text/javascript" src="./index.js"></script>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
     </head>
     <body style="background-image: url('boi.png');">
         <h1> Plaza Chatroom </h1>
@@ -29,6 +31,17 @@
         <input id="subject">
         <input id="input">
         <button id="chat-button">Send</button>
+        <button id="image-upload" class="cloudinary-button">Upload Image</button>
+
+        <script type="text/javascript">  
+            var myWidget = cloudinary.createUploadWidget({
+            cloudName: 'plazachat', 
+            uploadPreset: 'qf7dm0fr'}, (error, result) => { console.log(error, result) })
+
+            document.getElementById("image-upload").addEventListener("click", function(){
+                myWidget.open();
+            }, false);
+        </script>
 
     </body>
 </html>

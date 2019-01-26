@@ -2,6 +2,14 @@ var apiUrl = 'https://zac-chat.herokuapp.com'
 
 var chats = []
 
+// var myWidget = cloudinary.createUploadWidget({
+//   cloudName: 'plazachat', 
+//   uploadPreset: 'qf7dm0fr'
+// },
+//   (error, result) => {
+//     console.log(error, result)
+//   })
+
 function getChats() {
   fetch(apiUrl + '/chats')
     .then((response) => response.json())
@@ -32,11 +40,19 @@ function render() {
   for (var asdf of chats) {
       
       // var chatElement = $("<div class='alert alert-primary'></div>")
-      var chatElement = $("<div class='" + asdf.box + "'></div>")
-    
+      var chatElement = $(`
+        <div class="${asdf.box}">
 
-      var leftElement = $("<div style='width: 50px; float: left;'></div>")
-      var face = $("<div></div>")
+        </div>
+      `)
+    
+      var leftElement = $(`
+        <div style='width: 50px; float: left;'>
+
+        </div>
+      `)
+
+      var face = $(`<div></div>`)
       leftElement.append(face)
 
       chatElement.append(leftElement)
@@ -45,8 +61,9 @@ function render() {
 
       rightElement.append("<div>" + asdf.username +  "</div>")
       rightElement.append("<div>" + new Date(asdf.timestamp) +  "</div>")
-      rightElement.append("<div>" + asdf.message +  "</div>")
       rightElement.append("<div>" + asdf.subject +  "</div>")
+      rightElement.append("<div>" + asdf.message +  "</div>")
+
 
       chatElement.append(rightElement)
 
@@ -62,6 +79,12 @@ $(document).ready(function(){
 
   // Get chats every 10 seconds
   setInterval(() => getChats(), 10000)
+
+  // Upload image
+  // $("#image-upload").click(function() {
+  //   myWidget.open();
+
+  // })
 
   // Do something when the chat button is pressed
   $("#chat-button").click(function() {
@@ -94,8 +117,9 @@ $(document).ready(function(){
       $("#name-input").prop('disabled', true)
       $("#Colour").prop('disabled', true)
 
-      // Clear message input
+      // Clear message and subject input
       $("#input").val("")
+      $("#subject").val("")
 
   })
 
