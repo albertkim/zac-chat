@@ -42,30 +42,13 @@ function render() {
       // var chatElement = $("<div class='alert alert-primary'></div>")
       var chatElement = $(`
         <div class="${asdf.box}">
-
+          <div>${asdf.username}</div>
+          <div>${new Date(asdf.timestamp)}</div>
+          <div>${asdf.subject}</div>
+          <div>${asdf.message}</div>
+          <img src=${asdf.imageurl} />
         </div>
       `)
-    
-      var leftElement = $(`
-        <div style='width: 50px; float: left;'>
-
-        </div>
-      `)
-
-      var face = $(`<div></div>`)
-      leftElement.append(face)
-
-      chatElement.append(leftElement)
-  
-      var rightElement = $("<div></div>")
-
-      rightElement.append("<div>" + asdf.username +  "</div>")
-      rightElement.append("<div>" + new Date(asdf.timestamp) +  "</div>")
-      rightElement.append("<div>" + asdf.subject +  "</div>")
-      rightElement.append("<div>" + asdf.message +  "</div>")
-
-
-      chatElement.append(rightElement)
 
       $("#chats").append(chatElement)
   }
@@ -81,10 +64,9 @@ $(document).ready(function(){
   setInterval(() => getChats(), 10000)
 
   // Upload image
-  // $("#image-upload").click(function() {
-  //   myWidget.open();
-
-  // })
+  document.getElementById("image-upload").addEventListener("click", function(){
+    myWidget.open()
+  }, false)
 
   // Do something when the chat button is pressed
   $("#chat-button").click(function() {
@@ -107,6 +89,7 @@ $(document).ready(function(){
           subject: $("#subject").val(),
           message: $("#input").val(),
           timestamp: new Date(),
+          imageurl: $("#image-url").val(),
           box: $("#Colour").val()
       }
 

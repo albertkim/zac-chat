@@ -12,7 +12,7 @@
     <body style="background-image: url('boi.png');">
         <h1> Plaza Chatroom </h1>
         <div>
-            <input id="name-input">
+            <input id="name-input" placeholder = "Name">
 
                   <select id = "Colour">
                     <option value="alert alert-primary">blue</option>
@@ -28,19 +28,19 @@
         
         <div id="chats"></div>
         
-        <input id="subject">
-        <input id="input">
+        <input id="subject" placeholder="Subject">
+        <input id="input" placeholder="Message">
+        <input id="image-url" placeholder="Image URL (Optional)">
         <button id="chat-button">Send</button>
-        <button id="image-upload" class="cloudinary-button">Upload Image</button>
+        <button id="image-upload">Upload Image</button>
 
         <script type="text/javascript">  
             var myWidget = cloudinary.createUploadWidget({
             cloudName: 'plazachat', 
-            uploadPreset: 'qf7dm0fr'}, (error, result) => { console.log(error, result) })
-
-            document.getElementById("image-upload").addEventListener("click", function(){
-                myWidget.open();
-            }, false);
+            uploadPreset: 'qf7dm0fr'}, (error, result) => {
+                console.log(error, result)
+                console.log(result)
+            })
         </script>
 
     </body>
