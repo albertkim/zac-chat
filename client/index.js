@@ -52,6 +52,7 @@ function render() {
       // var chatElement = $("<div class='alert alert-primary'></div>")
       var chatElement = $(`
         <div class="${asdf.box}">
+          <img style="height: 50px;" src="${asdf.avatar || "https://www.logolynx.com/images/logolynx/03/039b004617d1ef43cf1769aae45d6ea2.png"}">
           <div>${asdf.username}</div>
           <div>${new Date(asdf.timestamp)}</div>
           <div>${asdf.subject}</div>
@@ -84,10 +85,17 @@ $(document).ready(function(){
       // Check message input
       if ($("#input").val().length < 1 ){
             return alert(" Your message must be at least 1 character long!")
+      }      
+      if ($("#image-url").val().length >= 1) {
+        if (!$("#image-url").val().includes("http")) {
+          return alert(" Invalid URL!")
+        }    
       }
+
 
       // Insert into chats array
       var newChat = {
+          avatar: $("#avatar").val(),
           username: $("#name-input").val(),
           subject: $("#subject").val(),
           message: $("#input").val(),
