@@ -33,6 +33,7 @@
         <input id="subject" placeholder="Subject (Optional)">
         <input id="input" placeholder="Message">
         <input id="image-url" placeholder="Image URL (Optional)">
+		<button id="upload_widget" class="cloudinary-button">Upload files</button>
         <button id="chat-button">Send</button>
 
         <script type="text/javascript">  
@@ -42,6 +43,10 @@
                 console.log(error, result)
                 console.log(result)
             })
+			
+			document.getElementById("upload_widget").addEventListener("click", function(){
+				myWidget.open();
+			  }, false);
         </script>
 
     </body>
