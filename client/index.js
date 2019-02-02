@@ -67,6 +67,21 @@ function render() {
 
 // Run when the website loads up
 $(document).ready(function(){
+  
+  // Connect to Cloudinary widget
+  // If upload is successful, set the image-url input to have that value
+	var myWidget = cloudinary.createUploadWidget({
+    cloudName: 'plazachat', 
+    uploadPreset: 'qf7dm0fr'}, (error, result) => {
+      if (result && result.event === 'success') {
+        const url = result.info.url
+        $("#image-url").val(url)
+      }
+    })
+  
+  document.getElementById("upload_widget").addEventListener("click", function(){
+    myWidget.open();
+    }, false);
 
   // Get chats right away
   getChats()
