@@ -7,11 +7,12 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script type="text/javascript" src="./index.js"></script>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="index.css">
 
     </head>
     <body style="background-image: url('boi.png');">
         <h1> Plaza Chatroom </h1>
-        <div>
+        <div id="starting-things">
             <input id="name-input" placeholder = "Name">
             <input id="avatar" placeholder = "Avatar" style="display: none;">
 
@@ -23,7 +24,6 @@
                     <option value="alert alert-danger">red</option>
                     <option value="alert alert-warning">yellow</option>
                     <option value="alert alert-info">cyan</option>
-                    <option value="alert alert-light">white</option>
                     <option value="alert alert-dark">black</option>
                   </select>
         </div>
@@ -31,7 +31,7 @@
         <div id="chats"></div>
         
         <input id="subject" placeholder="Subject (Optional)" style="display: none;">
-        <input id="input" placeholder="Message">
+        <input id="input" placeholder="Message"></textarea>
         <input id="image-url" placeholder="Image URL (Optional)"  style="display: none;">
 		<button  style="display: none;" id="upload_widget">Upload image/file</button>
         <button id="chat-button">Send</button>

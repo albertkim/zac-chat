@@ -46,16 +46,23 @@ function render() {
       } else {
         imageElement = `<div />`
       }
-
+      var empty
+      if (asdf.username == $("#name-input").val()) {
+        empty = "right-chat"
+      } else {
+        empty = "left-chat"
+      }
       console.log(imageElement)
       
       // var chatElement = $("<div class='alert alert-primary'></div>")
       var chatElement = $(`
-        <div class="${asdf.box}">
-          <div>${asdf.username}</div>
-          <div>${new Date(asdf.timestamp)}</div>
-          <div>${asdf.message}</div>
-          ${imageElement}
+        <div class="chat-container">
+          <div class="${empty} ${asdf.box}">
+            <div>${asdf.username}</div>
+            <div>${new Date(asdf.timestamp)}</div>
+            <div>${asdf.message}</div>
+            ${imageElement}
+          </div>
         </div>
       `)
 

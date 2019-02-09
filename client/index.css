@@ -1,0 +1,21 @@
+.chat-container {
+  display: flex;
+  padding: 10px;
+}
+
+.left-chat {
+
+}
+
+.right-chat {
+    margin-left: auto;
+    text-align: right;
+}
+
+h1 {
+    text-align: center;
+}
+
+#starting-things {
+    text-align: center;
+}
