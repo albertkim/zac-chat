@@ -52,10 +52,8 @@ function render() {
       // var chatElement = $("<div class='alert alert-primary'></div>")
       var chatElement = $(`
         <div class="${asdf.box}">
-          <img style="height: 50px;" src="${asdf.avatar || "https://www.logolynx.com/images/logolynx/03/039b004617d1ef43cf1769aae45d6ea2.png"}">
           <div>${asdf.username}</div>
           <div>${new Date(asdf.timestamp)}</div>
-          <div>${asdf.subject}</div>
           <div>${asdf.message}</div>
           ${imageElement}
         </div>
