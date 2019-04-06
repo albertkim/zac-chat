@@ -91,7 +91,7 @@ $(document).ready(function(){
   // Get chats right away
   getChats()
 
-  // Get chats every 10 seconds
+  // Get chats every 3 seconds
   setInterval(() => getChats(), 25000)
 
   // Do something when the chat button is pressed
@@ -100,15 +100,19 @@ $(document).ready(function(){
 
       // Check name input
       if ($("#name-input").val().length < 1 ){
-          return alert(" Your username must be at least 1 character long!")
+          return alert("Your username must be at least 1 character long!")
+      }
+      // You can't be named admin
+      if ($("#name-input").val() == "Admin"){
+        return alert("You can not be named Admin!")
       }
       // Check message input
       if ($("#input").val().length < 1 ){
-            return alert(" Your message must be at least 1 character long!")
+            return alert("Your message must be at least 1 character long!")
       }      
       if ($("#image-url").val().length >= 1) {
         if (!$("#image-url").val().includes("http")) {
-          return alert(" Invalid URL!")
+          return alert("Invalid URL!")
         }    
       }
 
