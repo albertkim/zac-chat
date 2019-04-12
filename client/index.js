@@ -92,7 +92,7 @@ $(document).ready(function(){
   getChats()
 
   // Get chats every 3 seconds
-  setInterval(() => getChats(), 25000)
+  setInterval(() => getChats(), 2500)
 
   // Do something when the chat button is pressed
   $("#chat-button").click(function() {
