@@ -99,7 +99,7 @@ $(document).ready(function(){
 
 
       // Check name input
-      if ($("#name-input").val().length < 1 ){
+      if ($("#name-input").val().trim().length >= 1 ){
           return alert("Your username must be at least 1 character long!")
       }
       // You can't be named admin
@@ -107,14 +107,13 @@ $(document).ready(function(){
         return alert("You can not be named Admin!")
       }
       // Check message input
-      if ($("#input").val().length < 1 ){
+      if ($("#input").val().trim().length >= 1 ){
             return alert("Your message must be at least 1 character long!")
       }      
       if ($("#image-url").val().length >= 1) {
         if (!$("#image-url").val().includes("http")) {
           return alert("Invalid URL!")
         }    
-      }
 
 
       // Insert into chats array
