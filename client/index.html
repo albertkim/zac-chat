@@ -37,7 +37,28 @@
         <button id="chat-button">Send</button>
 
         <script type="text/javascript">  
-            
+            document.getElementById( 'input' ).addEventListener( 'keydown', function( event ) {
+
+                if ( event.keyCode === 9 ) {
+
+                console.log('input')
+
+                    // Set up some variables. We need to know the current position of the cursor or selection.
+                    var selectionStartPos = this.selectionStart;
+                    var selectionEndPos   = this.selectionEnd;
+                    var oldContent        = this.value;
+
+                    // Set the new content.
+                    this.value = oldContent.substring( 0, selectionStartPos ) + "\t" + oldContent.substring( selectionEndPos );
+
+                    // Set the new cursor position (current position + 1 to account for the new tab character).
+                    this.selectionStart = this.selectionEnd = selectionStartPos + 1;
+
+                    // Prevent the default action (tabbing to the next field or control).
+                    event.preventDefault();
+                }
+                });
+
         </script>
 
     </body>

@@ -60,7 +60,7 @@ function render() {
           <div class="${empty} ${asdf.box}">
             <div>${asdf.username}</div>
             <div>${new Date(asdf.timestamp)}</div>
-            <div>${asdf.message}</div>
+            <div style="white-space: pre;">${asdf.message}</div>
             ${imageElement}
           </div>
         </div>
@@ -92,7 +92,7 @@ $(document).ready(function(){
   getChats()
 
   // Get chats every 3 seconds
-  setInterval(() => getChats(), 2500)
+  //setInterval(() => getChats(), 2500)
 
   // Do something when the chat button is pressed
   $("#chat-button").click(function() {
