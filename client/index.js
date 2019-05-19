@@ -142,7 +142,7 @@ $(document).ready(function(){
       $("#input").val("")
       $("#subject").val("")
       $("#image-url").val("")
-  })
+  }
 
 })
 function Walloftext(){
@@ -155,4 +155,4 @@ function Walloftext(){
 }
 
 
-
+}) 
