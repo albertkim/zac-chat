@@ -113,7 +113,9 @@ $(document).ready(function(){
       if ($("#image-url").val().length >= 1) {
         if (!$("#image-url").val().includes("http")) {
           return alert("Invalid URL!")
-        }    
+      }    
+      if ($("#input").val().length > 20000 ){
+        return alert("Your message must be less than 20000 characters!")
       }
 
       // Insert into chats array
