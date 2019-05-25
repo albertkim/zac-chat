@@ -86,7 +86,7 @@ $(document).ready(function(){
   
   document.getElementById("upload_widget").addEventListener("click", function(){
     myWidget.open();
-    }, false);
+  }, false);
 
   // Get chats right away
   getChats()
@@ -97,54 +97,57 @@ $(document).ready(function(){
   // Do something when the chat button is pressed
   $("#chat-button").click(function() {
 
-
-      // Check name input
-      if ($("#name-input").val().trim().length < 1 ){
-          return alert("Your username must be at least 1 character long!")
+    // Check name input
+    if ($("#name-input").val().trim().length < 1 ){
+        return alert("Your username must be at least 1 character long!")
+    }
+  
+    // You can't be named admin
+    if ($("#name-input").val() == "Admin"){
+      return alert("You can not be named Admin!")
+    }
+    // Check message input
+    if ($("#input").val().trim().length < 1 ){
+          return alert("Your message must be at least 1 character long!")
+    }
+    if ($("#image-url").val().length >= 1) {
+      if (!$("#image-url").val().includes("http")) {
+        return alert("Invalid URL!")
       }
-      // You can't be named admin
-      if ($("#name-input").val() == "Admin"){
-        return alert("You can not be named Admin!")
-      }
-      // Check message input
-      if ($("#input").val().trim().length < 1 ){
-            return alert("Your message must be at least 1 character long!")
-      }      
-      if ($("#image-url").val().length >= 1) {
-        if (!$("#image-url").val().includes("http")) {
-          return alert("Invalid URL!")
-      }    
-      if ($("#input").val().length > 20000 ){
-        return alert("Your message must be less than 20000 characters!")
-      }
+    }
 
-      // Insert into chats array
-      var newChat = {
-          avatar: $("#avatar").val(),
-          username: $("#name-input").val(),
-          subject: $("#subject").val(),
-          message: $("#input").val(),
-          timestamp: new Date(),
-          imageurl: $("#image-url").val(),
-          box: $("#Colour").val()
-      }
+    if ($("#input").val().length > 20000 ){
+      return alert("Your message must be less than 20000 characters!")
+    }
 
-      console.log(newChat)
+    // Insert into chats array
+    var newChat = {
+        avatar: $("#avatar").val(),
+        username: $("#name-input").val(),
+        subject: $("#subject").val(),
+        message: $("#input").val(),
+        timestamp: new Date(),
+        imageurl: $("#image-url").val(),
+        box: $("#Colour").val()
+    }
 
-      // Submit chat to server
-      postChat(newChat)
+    console.log(newChat)
 
-      // Disable your buttons
-      $("#name-input").prop('disabled', true)
-      $("#Colour").prop('disabled', true)
+    // Submit chat to server
+    postChat(newChat)
 
-      // Clear message and subject input
-      $("#input").val("")
-      $("#subject").val("")
-      $("#image-url").val("")
-  }
+    // Disable your buttons
+    $("#name-input").prop('disabled', true)
+    $("#Colour").prop('disabled', true)
+
+    // Clear message and subject input
+    $("#input").val("")
+    $("#subject").val("")
+    $("#image-url").val("")
+  })
 
 })
+
 function Walloftext(){
   var x = document.getElementById("initial-text");
   if (x.style.display === "none") {
@@ -153,6 +156,3 @@ function Walloftext(){
     x.style.display = "none";
   }
 }
-
-
-}) 
