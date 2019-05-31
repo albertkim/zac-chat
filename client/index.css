@@ -1,6 +1,7 @@
 .chat-container {
   display: flex;
   padding: 10px;
+  word-break: break-all;
 }
 
 .left-chat {
