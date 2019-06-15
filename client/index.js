@@ -21,7 +21,8 @@ function getChats() {
     })
 }
 
-function postChat(chat) {
+function postChat(chat){
+  $("#input").height(50)
   fetch(apiUrl + '/chat', {
     method: 'POST',
     body: JSON.stringify(chat),
@@ -154,5 +155,21 @@ function Walloftext(){
     x.style.display = "block";
   } else {
     x.style.display = "none";
+  }
+}
+
+// Auto-Grow-TextArea script.
+// Script copyright (C) 2011 www.cryer.co.uk.
+// Script is free to use provided this copyright header is included.
+function AutoGrowTextArea(textField)
+{
+  if (textField.clientHeight < textField.scrollHeight)
+  {
+    textField.style.height = textField.scrollHeight + "px";
+    if (textField.clientHeight < textField.scrollHeight)
+    {
+      textField.style.height = 
+        (textField.scrollHeight * 2 - textField.clientHeight) + "px";
+    }
   }
 }
